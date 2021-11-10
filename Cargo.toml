@@ -1,0 +1,13 @@
+[package]
+name = "genshin-midi-player"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = "2.33.3"
+midly = "0.5.2"
+autopilot = "0.4.0"
+x11 = "2.19.1"
+
+[profile.release]
+lto = true
