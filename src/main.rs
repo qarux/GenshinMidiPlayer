@@ -11,7 +11,7 @@ use std::sync::Arc;
 use std::thread::sleep;
 use std::time::Duration;
 
-const POLLING_RATE_MILLIS: u64 = 10;
+const POLLING_RATE_MILLIS: u64 = 100;
 
 fn main() {
     let args = cli::read_args();
@@ -28,6 +28,12 @@ fn main() {
                 .unwrap();
         })
     };
+
+    // Delay before start, otherwise some keys won't be pressed. Bug?
+    while !playing.load(Ordering::SeqCst) {
+        sleep(Duration::from_millis(POLLING_RATE_MILLIS));
+    }
+    sleep(Duration::from_millis(500));
 
     for event in events {
         while !playing.load(Ordering::SeqCst) {
