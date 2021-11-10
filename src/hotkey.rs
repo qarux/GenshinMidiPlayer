@@ -33,6 +33,7 @@ impl HotkeyManager {
                 let keycode = xlib::XKeysymToKeycode(display, hotkey.keycode);
                 let event: *mut XEvent = &mut XEvent { type_: 0 };
                 loop {
+                    // TODO Graceful shutdown
                     xlib::XNextEvent(display, event);
                     if rx.try_recv().is_ok() {
                         break;
