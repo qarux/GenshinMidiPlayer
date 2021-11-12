@@ -28,8 +28,10 @@ ARGS:
 The latest Rust stable (at least 1.56.1) is needed.
 
 ````
-git clone https://github.com/qarux/genshin-midi-player.git
-cd genshin-midi-player
+git clone https://github.com/qarux/GenshinMidiPlayer.git
+
+cd GenshinMidiPlayer
+
 cargo build --release
 ````
 
